@@ -4,13 +4,9 @@ import java.util.List;
 
 public class Printer {
 
-    public static void printStage(int stage) {
-        System.out.println(Stages.stages[stage]);
-    }
-
-    public static void printWord(List<Character> guessedLetters) {
+    public static void printWord(List<Character> guessedLetters, int stage) {
         for (int i = 0; i < guessedLetters.size(); i++) {
-            System.out.print("+-+ ");
+            System.out.print("$-$ ");
         }
         System.out.println();
         for (char ch :
@@ -21,9 +17,10 @@ public class Printer {
         }
         System.out.println();
         for (int i = 0; i < guessedLetters.size(); i++) {
-            System.out.print("+-+ ");
+            System.out.print("$-$ ");
         }
         System.out.println();
 
+        System.out.println(Stages.stages[stage]);
     }
 }

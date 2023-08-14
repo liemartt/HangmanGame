@@ -5,7 +5,8 @@ import java.util.List;
 
 public class Game {
     private final Input inputScanner;
-    public Game(){
+
+    public Game() {
         inputScanner = new Input();
     }
 
@@ -20,10 +21,10 @@ public class Game {
 
 
         System.out.print("Слово загадано: \n");
-        Printer.printWord(guessedLetters);
+        Printer.printWord(guessedLetters, mistakesCounter);
         System.out.println();
         while (mistakesCounter != 7) {
-            System.out.println("Использованные буквы: "+usedLetters);
+            System.out.println("Использованные буквы: " + usedLetters);
             Character letter = inputScanner.getCharacterFromUser();
             if (usedLetters.contains(letter)) {
                 System.out.println("Вы уже вводили эту букву, попробуйте другую");
@@ -33,8 +34,7 @@ public class Game {
             if (!word.contains(letter)) {
                 System.out.println("Такой буквы не существует в загаданном слове");
                 mistakesCounter++;
-                Printer.printWord(guessedLetters);
-                Printer.printStage(mistakesCounter);
+                Printer.printWord(guessedLetters, mistakesCounter);
                 System.out.println("Количество оставшихся попыток: " + (7 - mistakesCounter));
                 continue;
             }
@@ -44,8 +44,7 @@ public class Game {
                     guessedLetters.add(i, letter);
                 }
             }
-            Printer.printWord(guessedLetters);
-            Printer.printStage(mistakesCounter);
+            Printer.printWord(guessedLetters, mistakesCounter);
 
         }
         if (mistakesCounter < 7) System.out.println("Вы выиграли \uD83E\uDD73");
