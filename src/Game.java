@@ -1,31 +1,29 @@
 package src;
 
-import javax.print.attribute.standard.PrinterName;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Game {
-    private final Input inputScanner = new Input();
-    private List<Character> guessedLetters = new ArrayList<>();
-    private List<Character> usedLetters = new ArrayList<>();
-    private final List<Character> word;
-    private int mistakesCounter = 0;
-
-    public Game() {
-        word = Word.getWordFromFile();
-
-        for (int i = 0; i < word.size(); i++) {
-            guessedLetters.add(' ');
-        }
-
+    private final Input inputScanner;
+    public Game(){
+        inputScanner = new Input();
     }
 
     public void startNewGame() {
+        List<Character> word = Word.getWordFromFile();
+        List<Character> guessedLetters = new ArrayList<>();
+        List<Character> usedLetters = new ArrayList<>();
+        for (int i = 0; i < word.size(); i++) {
+            guessedLetters.add(' ');
+        }
+        int mistakesCounter = 0;
+
+
         System.out.print("Слово загадано: \n");
         Printer.printWord(guessedLetters);
         System.out.println();
         while (mistakesCounter != 7) {
-
+            System.out.println("Использованные буквы: "+usedLetters);
             Character letter = inputScanner.getCharacterFromUser();
             if (usedLetters.contains(letter)) {
                 System.out.println("Вы уже вводили эту букву, попробуйте другую");
