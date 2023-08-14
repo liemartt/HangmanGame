@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Input {
-    private static boolean isCorrectLetter(Character letter){
+    private static boolean isCorrectLetter(Character letter) {
         String alph = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";
         List<Character> letters = new ArrayList<>();
         for (char ch : alph.toCharArray()) {
@@ -15,12 +15,12 @@ public class Input {
         return letters.contains(letter);
     }
 
-    public Character getCharacterFromUser(){
+    public Character getCharacterFromUser() {
         Scanner scanner = new Scanner(System.in);
-        while(true) {
+        while (true) {
             System.out.print("Введите желаемую букву: ");
             String userInput = scanner.next();
-            if(userInput.length()!=1) {
+            if (userInput.length() != 1) {
                 System.out.println("Ошибка, введена не буква, попробуйте заново");
                 continue;
             }
