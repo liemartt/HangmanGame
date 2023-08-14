@@ -8,19 +8,19 @@ public class Printer {
         System.out.println(Stages.stages[stage]);
         }
     public static void print(List<Character> guessedLetters){
-        for(int i = 0;i<guessedLetters.size();i++){
-            System.out.print("__");
+        for (int i = 0; i < guessedLetters.size(); i++) {
+            System.out.print("+-+ ");
         }
         System.out.println();
-        System.out.print('|');
         for (char ch:
              guessedLetters) {
-            System.out.print(Character.toUpperCase(ch));
             System.out.print('|');
+            System.out.print(Character.toUpperCase(ch));
+            System.out.print("| ");
         }
         System.out.println();
         for (int i = 0; i < guessedLetters.size(); i++) {
-            System.out.print("__");
+            System.out.print("+-+ ");
         }
         System.out.println();
 
